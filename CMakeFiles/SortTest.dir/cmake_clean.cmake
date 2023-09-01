@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SortTest.dir/main/main.cpp.o"
   "CMakeFiles/SortTest.dir/main/main.cpp.o.d"
+  "CMakeFiles/SortTest.dir/src/SortUtil.cpp.o"
+  "CMakeFiles/SortTest.dir/src/SortUtil.cpp.o.d"
   "SortTest"
   "SortTest.pdb"
 )

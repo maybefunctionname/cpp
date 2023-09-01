@@ -153,6 +153,30 @@ main/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/main/main.cpp.s
 .PHONY : main/main.cpp.s
 
+src/SortUtil.o: src/SortUtil.cpp.o
+.PHONY : src/SortUtil.o
+
+# target to build an object file
+src/SortUtil.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/src/SortUtil.cpp.o
+.PHONY : src/SortUtil.cpp.o
+
+src/SortUtil.i: src/SortUtil.cpp.i
+.PHONY : src/SortUtil.i
+
+# target to preprocess a source file
+src/SortUtil.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/src/SortUtil.cpp.i
+.PHONY : src/SortUtil.cpp.i
+
+src/SortUtil.s: src/SortUtil.cpp.s
+.PHONY : src/SortUtil.s
+
+# target to generate assembly for a file
+src/SortUtil.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/src/SortUtil.cpp.s
+.PHONY : src/SortUtil.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... main/main.o"
 	@echo "... main/main.i"
 	@echo "... main/main.s"
+	@echo "... src/SortUtil.o"
+	@echo "... src/SortUtil.i"
+	@echo "... src/SortUtil.s"
 .PHONY : help
 
 

@@ -81,12 +81,12 @@ clean: CMakeFiles/SortTest.dir/clean
 CMakeFiles/SortTest.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/cpp_learning/cpp/CMakeFiles --progress-num=1,2 "Built target SortTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/cpp_learning/cpp/CMakeFiles --progress-num=1,2,3 "Built target SortTest"
 .PHONY : CMakeFiles/SortTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SortTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/cpp_learning/cpp/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/cpp_learning/cpp/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SortTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/cpp_learning/cpp/CMakeFiles 0
 .PHONY : CMakeFiles/SortTest.dir/rule

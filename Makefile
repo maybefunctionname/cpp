@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named HelloWorld
+# Target rules for targets named SortTest
 
 # Build rule for target.
-HelloWorld: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HelloWorld
-.PHONY : HelloWorld
+SortTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SortTest
+.PHONY : SortTest
 
 # fast build rule for target.
-HelloWorld/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld.dir/build.make CMakeFiles/HelloWorld.dir/build
-.PHONY : HelloWorld/fast
+SortTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/build
+.PHONY : SortTest/fast
 
 main/main.o: main/main.cpp.o
 .PHONY : main/main.o
 
 # target to build an object file
 main/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld.dir/build.make CMakeFiles/HelloWorld.dir/main/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/main/main.cpp.o
 .PHONY : main/main.cpp.o
 
 main/main.i: main/main.cpp.i
@@ -142,7 +142,7 @@ main/main.i: main/main.cpp.i
 
 # target to preprocess a source file
 main/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld.dir/build.make CMakeFiles/HelloWorld.dir/main/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/main/main.cpp.i
 .PHONY : main/main.cpp.i
 
 main/main.s: main/main.cpp.s
@@ -150,7 +150,7 @@ main/main.s: main/main.cpp.s
 
 # target to generate assembly for a file
 main/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld.dir/build.make CMakeFiles/HelloWorld.dir/main/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortTest.dir/build.make CMakeFiles/SortTest.dir/main/main.cpp.s
 .PHONY : main/main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... HelloWorld"
+	@echo "... SortTest"
 	@echo "... main/main.o"
 	@echo "... main/main.i"
 	@echo "... main/main.s"

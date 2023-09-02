@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/root/cpp_learning/cpp/./lib
 
-CXX_FLAGS = -g
+CXX_FLAGS = -g -Wall
 

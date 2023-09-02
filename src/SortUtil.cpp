@@ -30,6 +30,31 @@ void SortUtil::sort(int* arr, int len) {
 	{
 		this->heapSort(arr, len);
 	}
+	else if (this->kind == SORT_KIND::SHELL)
+	{
+		this->shellSort(arr, len);
+	}
+}
+
+void SortUtil::shellSort(int* arr, int len)
+{
+	for (int gap = len >> 1;  gap >= 1; gap >>= 1)
+	{
+		for (int i = gap; i <= len - 1; i++)
+		{
+			if (i > 0 && arr[i] < arr[i-gap])
+			{
+				int temp = arr[i];
+				int j =  i - gap;
+				while (j >= 0 && arr[j] > temp)
+				{
+					arr[j+gap] = arr[j];
+					j -= gap;
+				}
+				arr[j+gap] = temp;
+			}
+		}	
+	}
 }
 
 void SortUtil::heapify(int* arr, int parent, int end)

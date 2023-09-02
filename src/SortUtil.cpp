@@ -34,6 +34,47 @@ void SortUtil::sort(int* arr, int len) {
 	{
 		this->shellSort(arr, len);
 	}
+	else if (this->kind == SORT_KIND::MERGE)
+	{
+		this->mergeSort(arr, 0, len-1);
+	}
+}
+
+void SortUtil::mergeSort(int* arr, int left, int right)
+{
+	if (left >= right) 
+		return;
+	int mid = ((right - left) >> 1) + left;
+	mergeSort(arr, left, mid);
+	mergeSort(arr, mid+1, right);
+	merge(arr, left, mid, right);
+}
+
+void SortUtil::merge(int* arr, int left, int mid, int right)
+{
+	int tempArr[10];
+	int p_left = left;
+	int p_right = mid + 1;
+	int index = 0;
+	while(p_left <= mid && p_right <= right)
+	{
+		if (arr[p_left] > arr[p_right]) 
+			tempArr[index++] = arr[p_right++];
+		else
+			tempArr[index++] = arr[p_left++];
+	}
+	while(p_left <= mid)
+	{
+		tempArr[index++] = arr[p_left++];
+	}
+	while(p_right <= right)
+	{
+		tempArr[index++] = arr[p_right++];
+	}
+	for (int i = 0; i <= index - 1; i++)
+	{
+		arr[left+i] = tempArr[i]; 
+	}
 }
 
 void SortUtil::shellSort(int* arr, int len)

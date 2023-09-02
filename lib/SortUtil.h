@@ -2,7 +2,7 @@
 
 class SortUtil{
 public:
-	enum SORT_KIND {BUBBLE, SELECT, INSERT, HEAP, SHELL};
+	enum SORT_KIND {BUBBLE, SELECT, INSERT, HEAP, SHELL, MERGE};
 private:
 	SORT_KIND kind = SORT_KIND::BUBBLE;
 public:
@@ -16,4 +16,6 @@ private:
 	void selectSort(int* arr, int len);
 	void insertSort(int* arr, int len);
 	void shellSort(int* arr, int len);
+	void mergeSort(int* arr, int left, int right);
+	void merge(int* arr, int left, int mid, int right);
 };

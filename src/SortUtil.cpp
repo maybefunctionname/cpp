@@ -38,6 +38,34 @@ void SortUtil::sort(int* arr, int len) {
 	{
 		this->mergeSort(arr, 0, len-1);
 	}
+	else if (this->kind == SORT_KIND::QUICK)
+	{
+		this->quickSort(arr, 0, len-1);
+	}
+}
+
+void SortUtil::quickSort(int* arr, int left, int right)
+{	
+	if (left >= right)
+		return;
+	int temp = arr[left];
+	int i = left;
+	int j = right;
+	while (i < j)
+	{
+		while (i < j && arr[j] >= temp)
+			j--;
+		while (i < j && arr[i] <= temp)
+			i++;
+		if (i < j)
+		{
+			BaseUtil::swap(arr[i], arr[j]);		
+		}
+	}
+	arr[left] = arr[i];
+	arr[i] = temp;
+	quickSort(arr, left, i-1);
+	quickSort(arr, i+1, right);	
 }
 
 void SortUtil::mergeSort(int* arr, int left, int right)

@@ -51,6 +51,37 @@ void SortUtil::sort(int* arr, int len) {
 	{
 		this->bucketSort(arr, len);
 	}
+	else if (this->kind == SORT_KIND::BASE) {
+		this->baseSort(arr, len);
+	}
+}
+
+void SortUtil::baseSort(int* arr, int len){
+	int max = arr[0];
+	for (int i = 0; i < len; i++) {
+		if (max < arr[i])
+			max = arr[i];
+	}
+	int maxLen = 1;
+	while (max /= 10) {
+		maxLen++;
+	}
+	vector<vector<int>> buckets(10);
+	int base = 1;
+	while (maxLen--) {
+		for (int i = 0; i < len; i++) {
+			int curBase = (arr[i] / base) % 10;
+			buckets[curBase].push_back(arr[i]);
+		}
+		int index = 0;
+		for (int i = 0; i < buckets.size(); i++) {
+			for (int j = 0; j < buckets[i].size(); j++) {
+				arr[index] = buckets[i][j];
+				++index;
+			}
+		}
+		base *= 10;
+	}
 }
 
 void SortUtil::bucketSortImpl(vector<int>& arr) {

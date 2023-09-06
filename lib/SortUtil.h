@@ -3,7 +3,7 @@
 using namespace std;
 class SortUtil{
 public:
-	enum SORT_KIND {BUBBLE, SELECT, INSERT, HEAP, SHELL, MERGE, QUICK, COUNT, BUCKET};
+	enum SORT_KIND {BUBBLE, SELECT, INSERT, HEAP, SHELL, MERGE, QUICK, COUNT, BUCKET, BASE};
 private:
 	SORT_KIND kind = SORT_KIND::BUBBLE;
 public:
@@ -23,4 +23,5 @@ private:
 	void countSort(int* arr, int len);
 	void bucketSort(int* arr, int len);
 	void bucketSortImpl(vector<int>& arr);
+	void baseSort(int* arr, int len);
 };

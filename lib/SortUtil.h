@@ -1,8 +1,9 @@
 #pragma once
-
+#include<vector>
+using namespace std;
 class SortUtil{
 public:
-	enum SORT_KIND {BUBBLE, SELECT, INSERT, HEAP, SHELL, MERGE, QUICK};
+	enum SORT_KIND {BUBBLE, SELECT, INSERT, HEAP, SHELL, MERGE, QUICK, COUNT, BUCKET};
 private:
 	SORT_KIND kind = SORT_KIND::BUBBLE;
 public:
@@ -19,4 +20,7 @@ private:
 	void mergeSort(int* arr, int left, int right);
 	void merge(int* arr, int left, int mid, int right);
 	void quickSort(int* arr, int left, int right);
+	void countSort(int* arr, int len);
+	void bucketSort(int* arr, int len);
+	void bucketSortImpl(vector<int>& arr);
 };

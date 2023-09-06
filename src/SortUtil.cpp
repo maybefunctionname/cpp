@@ -2,6 +2,7 @@
 #include<iostream>
 #include"BaseUtil.h"
 #include"SortUtil.h"
+#include<vector>
 using namespace std;
 
 void SortUtil::setSortKind(SORT_KIND kind) {
@@ -42,6 +43,92 @@ void SortUtil::sort(int* arr, int len) {
 	{
 		this->quickSort(arr, 0, len-1);
 	}
+	else if (this->kind == SORT_KIND::COUNT) 
+	{
+		this->countSort(arr, len);
+	}
+	else if (this->kind == SORT_KIND::BUCKET)
+	{
+		this->bucketSort(arr, len);
+	}
+}
+
+void SortUtil::bucketSortImpl(vector<int>& arr) {
+	int len = arr.size();
+	for (int i = 0; i < len - 1; i++) {
+		bool isSwap = 0;
+		for (int j = 0; j < len - i - 1; j++) {
+			if (arr[j] > arr[j+1]) {
+				BaseUtil::swap(arr[j], arr[j+1]);
+				isSwap = 1;
+			}
+		}
+		if (!isSwap)
+			break;
+	}
+}
+
+void SortUtil::bucketSort(int* arr, int len){
+	int min = arr[0];
+	int max = arr[0];
+	for (int i = 0; i < len; i++) {
+		if (min > arr[i]) {
+			min = arr[i];
+		}
+		if (max < arr[i]) {
+			max = arr[i];
+		}
+	}
+	int size = (max - min) / len + 1;
+	int n = (max - min) / size + 1;
+	vector<vector<int>> buckets(n);
+	for (int i = 0; i < len; i++) {
+		int j =  arr[i] / size;
+		if (j >= n)
+			j = n - 1;
+		buckets[j].push_back(arr[i]); 
+	}
+	int index = 0;
+	for (int i = 0; i < buckets.size(); i++) {
+		bucketSortImpl(buckets[i]);
+		for (int j = 0; j < buckets[i].size(); j++) {
+			arr[index++] = buckets[i][j]; 
+		}
+	}
+}
+
+void SortUtil::countSort(int* arr, int len)
+{
+	int max = arr[len-1];
+	int min = arr[0];
+	for (int i = 0; i < len; i++)
+	{
+		if (min > arr[i])
+			min = arr[i];
+		if (max < arr[i])
+		   	max = arr[i];
+	}
+	vector<int> b(max - min + 1, 0);
+	vector<int> c(max - min + 1, 0);
+	for (int i = 0; i < len; i++) {
+		b[arr[i] - min]++; 
+	}
+	for (int i = 0; i < len; i++) {
+		if (i == 0) {
+			c[i] = b[i];
+			continue;
+		}
+		c[i] = c[i-1] + b[i];
+	}
+	// 需要新创建一个和元数组等长的数组来存放排序后的结果
+	vector<int> res(len, 0);
+	for (int i = len - 1; i >= 0; i--) {
+		res[c[arr[i] - min] - 1] = arr[i];
+	  	c[arr[i] - min]--;	
+	}
+   	for (int i = 0; i < len; i++) {
+		arr[i] = res[i];
+	}	
 }
 
 void SortUtil::quickSort(int* arr, int left, int right)
